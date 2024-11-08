@@ -1,182 +1,246 @@
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'signin_screen.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
-// class LoginScreen extends StatelessWidget {
-//   const LoginScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Container(
-//         color: Colors.green,
-//         child: Stack(
-//           children: [
-//             Positioned(
-//               top: 40,
-//               left: 20,
-//               child: IconButton(
-//                 icon: Icon(Icons.arrow_back, color: Colors.black),
-//                 onPressed: () {
-//                   Navigator.pop(context);
-//                 },
-//               ),
-//             ),
-//             Positioned(
-//               top: 40,
-//               right: 20,
-//               child: Text(
-//                 'Login',
-//                 style: TextStyle(
-//                   fontSize: 20,
-//                   fontWeight: FontWeight.bold,
-//                   color: Colors.black,
-//                 ),
-//               ),
-//             ),
-//             Center(
-//               child: Padding(
-//                 padding: EdgeInsets.symmetric(horizontal: 30),
-//                 child: Column(
-//                   mainAxisAlignment: MainAxisAlignment.center,
-//                   children: [
-//                     TextField(
-//                       decoration: InputDecoration(
-//                         labelText: 'Email',
-//                         labelStyle: TextStyle(color: Colors.black),
-//                         filled: true,
-//                         fillColor: Colors.white,
-//                         border: OutlineInputBorder(
-//                           borderRadius: BorderRadius.circular(8),
-//                           borderSide: BorderSide(color: Colors.white),
-//                         ),
-//                       ),
-//                       style: TextStyle(color: Colors.white),
-//                     ),
-//                     SizedBox(height: 20),
-//                     TextField(
-//                       obscureText: true,
-//                       decoration: InputDecoration(
-//                         labelText: 'Password',
-//                         labelStyle: TextStyle(color: Colors.black),
-//                         filled: true,
-//                         fillColor: Colors.white,
-//                         border: OutlineInputBorder(
-//                           borderRadius: BorderRadius.circular(8),
-//                           borderSide: BorderSide(color: Colors.white),
-//                         ),
-//                         enabledBorder: OutlineInputBorder(
-//                           borderSide: BorderSide(color: Colors.white),
-//                           borderRadius: BorderRadius.circular(8),
-//                         ),
-//                         focusedBorder: OutlineInputBorder(
-//                           borderSide: BorderSide(color: Colors.white),
-//                           borderRadius: BorderRadius.circular(8),
-//                         ),
-//                       ),
-//                       style: TextStyle(color: Colors.black),
-//                     ),
-//                     SizedBox (height: 20),
-//                     ElevatedButton(onPressed: (){},
-//                     style: ElevatedButton.styleFrom(
-//                       backgroundColor: Colors.white,
-//                       padding: EdgeInsets.symmetric(horizontal: 100, vertical:15),
-//                     ),
-//                     child: Text(
-//                       'Login',
-//                       style: TextStyle(
-//                         fontWeight: FontWeight.bold,
-//                         fontSize: 16,
-//                         color: Colors.green,
-//                       ),
-//                     ),
-//                     ),
-//                   ],
-//                 ),
-//               ),
-//             ),
-//            Align(
-//             alignment: Alignment.bottomCenter,
-//             child: Padding(
-//               padding: EdgeInsets.only(bottom: 20),
-//               child: Row(
-//                 mainAxisAlignment: MainAxisAlignment.center,
-//                 children: [
-//                   Image.asset(
-//                     'assets/tahura.png',
-//                     height: 80,
-//                     width: 80,
-//                     fit: BoxFit.cover,
-//                   ),
-//                   SizedBox(width: 20),
-//                   Image.asset(
-//                     'assets/likmi.png',
-//                     height: 80,
-//                     width: 80,
-//                     fit: BoxFit.cover,
-//                   ),
-//                   SizedBox(width: 20),
-//                   Image.asset(
-//                     'assets/turisbg.png',
-//                     height: 80,
-//                     width: 80,
-//                     fit: BoxFit.cover,
-//                   ),
-//                 ],
-//               ),
-//             ),
-//            ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-//   // @override
-//   // Widget build(BuildContext context) {
-//   //   return MaterialApp(
-//   //       home: Scaffold(
-//   //    appBar: AppBar(
-//   //     title: Text("TAHURA"),
-//   //     centerTitle: true,
-//   //     backgroundColor: Colors.green,
-//   //     ),
-//   //     body: Padding(
-//   //         padding: const EdgeInsets.all(16.0),
-//   //         child: Column(
-//   //           children: [
-//   //             TextFormField(
-//   //               decoration: InputDecoration(
-//   //                 border: OutlineInputBorder(
-//   //                   borderRadius: BorderRadius.circular(25),
-//   //                   borderSide: BorderSide(color: Colors.red),
-//   //                 ),
-//   //                 filled: true,
-//   //                 fillColor: Colors.white,
-//   //                 labelText: "Email",
-//   //                 hintText: "Enter your Email",
-//   //                 helperText: "Masukkan Email Anda",
-//   //                 prefixIcon: Icon(Icons.person),
-//   //               ),
-//   //             ),
-//   //             SizedBox(height: 16), // Jarak antara form input
-//   //             TextFormField(
-//   //               maxLength: 8,
-//   //               obscureText: true,
-//   //               decoration: InputDecoration(
-//   //                 border: OutlineInputBorder(
-//   //                   borderRadius: BorderRadius.circular(25),
-//   //                   borderSide: BorderSide(color: Colors.red),
-//   //                 ),
-//   //                 filled: true,
-//   //                 fillColor: Colors.white,
-//   //                 labelText: "Password",
-//   //                 hintText: "Enter your Password",
-//   //                 helperText: "Masukkan Password Anda",
-//   //                 prefixIcon: Icon(Icons.lock),
-//   //               ),
-//   //             ),
-//   //           ],
-//   //         ),
-//   //       ),
-//   //     ),
-//   //   );
-//   // }
-// }
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginScreen> {
+  bool _obscureText = true;
+  bool _rememberMe = false;
+  XFile? _profileImage;
+  final ImagePicker _picker = ImagePicker(); // Checkbox state
+
+  void _togglePasswordVisibility() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
+  }
+
+  void _forgotPassword() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Forgot Password clicked'),
+      ),
+    );
+  }
+
+  void _register() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const SigninScreen()),
+    );
+  }
+
+  Future<void> _pickImage() async {
+    try {
+      final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+      if (image != null) {
+        setState(() {
+          _profileImage = image;
+        });
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error picking image: $e')),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.green[300],
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () {},
+        ),
+        actions: const [
+          Padding(
+            padding: EdgeInsets.only(right: 16.0),
+            child: Center(
+              child: Text(
+                'LOGIN',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20.0,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.all(24.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: _pickImage,
+                    child: CircleAvatar(
+                      radius: 50,
+                      backgroundImage: _profileImage != null
+                          ? FileImage(File(_profileImage!.path))
+                          : const AssetImage('assets/tahura.png')
+                              as ImageProvider,
+                    ),
+                  ),
+                  const SizedBox(height: 16.0),
+                  TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Email',
+                      hintStyle: const TextStyle(color: Colors.black54),
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                        borderSide: BorderSide.none,
+                      ),
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 16.0, horizontal: 16.0),
+                    ),
+                  ),
+                  const SizedBox(height: 16.0),
+                  TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Password',
+                      hintStyle: const TextStyle(color: Colors.black54),
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                        borderSide: BorderSide.none,
+                      ),
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 16.0, horizontal: 16.0),
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _obscureText
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                          color: Colors.black54,
+                        ),
+                        onPressed: _togglePasswordVisibility,
+                      ),
+                    ),
+                    obscureText: _obscureText,
+                  ),
+                  const SizedBox(height: 16.0),
+                  // Centered Remember Me Checkbox
+                  Row(
+                    children: [
+                      Checkbox(
+                        value: _rememberMe,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            _rememberMe = value ?? false;
+                          });
+                        },
+                        activeColor: Colors.green, // Checkbox color
+                      ),
+                      const Text(
+                        'Remember Me',
+                        style: TextStyle(color: Colors.black54),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8.0),
+                  // Forgot Password Text
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: TextButton(
+                      onPressed: _forgotPassword,
+                      child: const Text(
+                        'Forgot Password?',
+                        style: TextStyle(
+                          color: Colors.black54,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 32.0),
+                  SizedBox(
+                    width: double.infinity,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(
+                          colors: [Colors.green, Colors.teal],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                        borderRadius: BorderRadius.circular(16.0),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.25),
+                            offset: const Offset(0, 4),
+                            blurRadius: 8,
+                          ),
+                        ],
+                      ),
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 14.0),
+                          backgroundColor: Colors.transparent,
+                          shadowColor: Colors.transparent,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16.0),
+                          ),
+                        ),
+                        child: const Text(
+                          'Login',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16.0),
+                  TextButton(
+                    onPressed: _register,
+                    child: const Text(
+                      'Register',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset('assets/tahura.png', height: 40.0), // Logo 1
+                const SizedBox(width: 20.0),
+                Image.asset('assets/likmi.png', height: 40.0), // Logo 2
+                const SizedBox(width: 20.0),
+                Image.asset('assets/turisbg.png', height: 40.0), // Logo 3
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
