@@ -6,6 +6,7 @@ import 'package:myapp/screens/info_screen.dart';
 import 'package:myapp/screens/login_screen.dart';
 import 'package:myapp/screens/password_screen.dart';
 import 'package:myapp/screens/signin_screen.dart';
+import 'package:myapp/screens/sepeda_screen.dart';
 import 'package:myapp/screens/spot_screen.dart';
 
 void main() {
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // home: const AwalScreen(),
-      home: LoginScreen(),
+      home: SepedaScreen(),
     );
   }
 }
